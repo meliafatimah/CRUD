@@ -14,6 +14,11 @@ class QuestionModel {
         $new_question = DB::table('question')->insert($data);
         return $new_question;
     }
+
+    public static function find_by_id($id){
+        $question = DB::table('question')->where('id',$id)->first();
+        return $question;
+    }
 }
 
 ?>

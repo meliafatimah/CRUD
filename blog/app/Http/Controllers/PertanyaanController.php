@@ -16,10 +16,14 @@ class PertanyaanController extends Controller
 
         return redirect('/pertanyaan');
     }
-
     public function index() {
         $question = QuestionModel::get_all();
         //dd($question);
         return view('question.index',compact('question'));
+    }
+    public function see($id) {
+        $question = QuestionModel::find_by_id($id);
+
+        return view('question.see', compact('question'));
     }
 }
